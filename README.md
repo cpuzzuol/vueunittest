@@ -5,6 +5,7 @@
 Axios: https://stackoverflow.com/questions/45016033/how-do-i-test-axios-in-jest
 Axios Mock Adapter: https://github.com/Tuong-Nguyen/JavaScript-Structure/wiki/Unit-Test-Axios-with-axios-mock-adapter
 Vuex: https://vue-test-utils.vuejs.org/guides/using-with-vuex.html
+JSON Placeholder API data: https://jsonplaceholder.typicode.com/
 ```
 
 ## Project setup

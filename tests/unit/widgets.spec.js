@@ -6,6 +6,7 @@ import Widgets from '@/components/Widgets.vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
+import sinon from 'sinon'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
@@ -50,6 +51,21 @@ describe('Widgets.vue', () => {
       .then(res => {
         expect(res.data.length).toBe(2);
       });
+  })
+
+  it('should run the callback when clicked', () => {
+    const spy = sinon.spy()
+    const mockCallback = jest.fn()
+
+    const wrapper = shallowMount(Widgets, {
+      store,
+      localVue,
+      propsData: { name }
+    })
+    const button = wrapper.find('button')
+    button.trigger('click')
+    spy.should.have.been.mockCallback()
+
   })
 })
 
