@@ -6,6 +6,8 @@ Axios: https://stackoverflow.com/questions/45016033/how-do-i-test-axios-in-jest
 Axios Mock Adapter: https://github.com/Tuong-Nguyen/JavaScript-Structure/wiki/Unit-Test-Axios-with-axios-mock-adapter
 Vuex: https://vue-test-utils.vuejs.org/guides/using-with-vuex.html
 JSON Placeholder API data: https://jsonplaceholder.typicode.com/
+Testing methods: https://medium.com/3yourmind/testing-vue-components-a-cheat-sheet-299b3b8be88d
+Jest spyOn(): https://jestjs.io/docs/en/jest-object#jestspyonobject-methodname
 ```
 
 ## Project setup

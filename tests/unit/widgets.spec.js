@@ -6,7 +6,6 @@ import Widgets from '@/components/Widgets.vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
-import sinon from 'sinon'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
@@ -14,6 +13,7 @@ localVue.use(Vuex)
 describe('Widgets.vue', () => {
   let actions
   let store
+  const name = 'new message'
 
   beforeEach(() => {
     actions = {
@@ -25,14 +25,22 @@ describe('Widgets.vue', () => {
     })
   })
 
-  it('widget name should be passed', () => {
-    const name = 'new message'
-    const wrapper = shallowMount(Widgets, {
+  const factory = (values = {}) => {
+    return shallowMount(Widgets, {
       store,
       localVue,
-      propsData: { name }
+      //spy,
+      propsData: { name },
+      data() { return values },
+      // methods: {
+      //   getWidgets() {}
+      // }
     })
-    expect(wrapper.text()).toMatch(name)
+  }
+
+  it('widget name should be passed', () => {
+    const wrapper = factory({})
+    expect(wrapper.find('.name').text()).toMatch(name)
   })
 
   // MOCK AXIOS API CALL!
@@ -54,18 +62,19 @@ describe('Widgets.vue', () => {
   })
 
   it('should run the callback when clicked', () => {
-    const spy = sinon.spy()
-    const mockCallback = jest.fn()
-
-    const wrapper = shallowMount(Widgets, {
-      store,
-      localVue,
-      propsData: { name }
-    })
+    // https://stackoverflow.com/questions/45787562/how-to-sinon-spy-a-vue-component-method-triggered-by-a-vue-event
+    // Spy must be created BEFORE the factory!
+    const spy = jest.spyOn(Widgets.methods, 'getWidgets')
+    const wrapper = factory({})
     const button = wrapper.find('button')
     button.trigger('click')
-    spy.should.have.been.mockCallback()
+    expect(spy).toHaveBeenCalled()
 
+  })
+
+  it('should convert the input to UPPERCASE', () => {
+    const wrapper = factory({})
+    expect(wrapper.vm.myWidgetFn('bob')).toEqual('BOB')
   })
 })
 

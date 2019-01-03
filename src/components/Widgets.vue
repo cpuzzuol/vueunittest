@@ -1,10 +1,11 @@
 <template>
 	<div>
-		{{ name }}
+		<p class="name">{{ name }}</p>
 		<button @click="getWidgets">Get!</button>
 		<ol>
 			<li v-for="widget in widgets">{{ widget.title }}</li>
 		</ol>
+		{{ myWidgetFn('tacos') }}
 	</div>
 </template>
 
@@ -20,6 +21,9 @@
 		created() {
 			this.setWidgets(widgets)
 		},
+		data() {
+			return {}
+		},
 		computed: {
 			...mapState([
 				'widgets'
@@ -33,11 +37,14 @@
 				axios.get('https://jsonplaceholder.typicode.com/posts')
 					.then(response => {
 						this.setWidgets(response.data)
-						console.log(response)
+						//console.log(response)
 					})
 					.catch(e => {
-						console.log(e)
+						//console.log(e)
 					})
+			},
+			myWidgetFn(input){
+				return input.toUpperCase()
 			}
 		},
 	}
