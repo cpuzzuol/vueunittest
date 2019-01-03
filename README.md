@@ -8,6 +8,7 @@ Vuex: https://vue-test-utils.vuejs.org/guides/using-with-vuex.html
 JSON Placeholder API data: https://jsonplaceholder.typicode.com/
 Testing methods: https://medium.com/3yourmind/testing-vue-components-a-cheat-sheet-299b3b8be88d
 Jest spyOn(): https://jestjs.io/docs/en/jest-object#jestspyonobject-methodname
+When to test and when not to: https://www.javaworld.com/article/2892225/testing-debugging/how-just-about-everyone-gets-unit-testing-wrong.html
 ```
 
 ## Project setup
