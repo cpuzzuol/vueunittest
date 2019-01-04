@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <p class="practice-notice">This is just a test project!</p>
+    <h1>Unit testing practice</h1>
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/widgets">Widgets</router-link>
@@ -25,5 +27,11 @@
       color: #42b983;
     }
   }
+}
+p.practice-notice{
+  margin: 0;
+  width:100%;
+  background-color: salmon;
+  border-bottom: 1px dashed black;
 }
 </style>
